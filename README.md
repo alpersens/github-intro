@@ -1,7 +1,8 @@
-#List
-#Barrow
-#Deliver
-#Profile functions exists
+#README
+List,
+Barrow,
+Deliver,
+Profile functions exists
 List function lists all book regardless of they are belonged to someone or not 
 Barrow function takes and compares  input and databas variables whether book and student are available.
 Deliver functions deliver the book
