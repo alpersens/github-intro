@@ -6,9 +6,6 @@ cursor = connection.cursor()
 print("PostgreSQL server information")
 print(connection.get_dsn_parameters(), "\n")
 # Executing a SQL query
-#cursor.execute("INSERT into book(book_name,writer,type_id) values(%s,%s,%s)",('Don Kişot','Atatürk',1))
-#cursor.execute("DELETE from book WHERE book_id=7;")
-#cursor.execute("SELECT book_id,book_name  FROM book")
 while(1):
     order=input("What do you want? Barrow or list books :")
     if(order=="list"):
