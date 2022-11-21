@@ -27,13 +27,13 @@ while(1):
             print("There is no book with such that name...")#If it is not, then continue
             print("Please Enter again...")
             continue
-        if(len(Student_info)==0):#Check book is barrowed by someone else
-            print("Book is available...")#If it is not, add book to the students profile
-            cursor.execute("INSERT into book_student(book_id,student_id) values(%s,%s)", (Book_id,Student_id))
+        if(len(Student_info)==0):#Check book is barrowed by someone else and if there exist student with that ID
+            print("Book is available and added to student profile with id ",Student_id)#If it is not, add book to the students profile
+            cursor.execute("INSERT into book_student(book_id,student_id) values({0},{1})".format(Book_id,Student_id))
             connection.commit()
             continue
         else:
-            print("Book is not available...")
+            print("Student does not exist or book is not available  please try again...")
             continue
     elif(order=="profile"):#list students profile
         Student_id=input("Student ID:")
@@ -55,9 +55,11 @@ while(1):
 
         if(found==1):#if it is deliverable, then do it
             cursor.execute("DELETE  from book_student WHERE book_id={0}".format(Book_id))
-            print("Delivery is successfully complete...")
+            print("Delivery is completed successfully ...")
             connection.commit()
         else:
-            print("Try again...")
+            print("There is no book with that name belongs to someone...")
     elif(order=="quit"):#Close program
+        connection.close()
+
         break
